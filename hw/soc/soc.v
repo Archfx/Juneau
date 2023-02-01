@@ -3,7 +3,7 @@
 `timescale 1 ns / 1 ps
 
 module soc #(
-    parameter FIRMWARE_FILE = "firmware.mem",
+    parameter FIRMWARE_FILE = "fw/otp.mem",
     parameter ROM_ADDR_BITS = 12,
     parameter RAM_ADDR_BITS = 17,
     parameter FRAM_ADDR_BITS = 20

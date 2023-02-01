@@ -2,7 +2,7 @@
 
 module rom #(
     parameter ADDR_BITS = 10,
-    parameter FILENAME = "rom.mem"
+    parameter FILENAME = "fw/otp.mem"
 ) (
     input clk,
     input valid,
@@ -19,7 +19,7 @@ reg [31:0] rom [(2**(ADDR_BITS-2))-1:0];
 // see
 // https://www.reddit.com/r/yosys/comments/f92bke/whats_the_right_way_to_load_a_verilog_module_that/
 initial begin
-    $readmemh(FILENAME, rom);
+    $readmemh(FILENAME, rom, 0, (2**(ADDR_BITS-2))-1);
 end
 
 // workaround to make Yosys output better

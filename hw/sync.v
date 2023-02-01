@@ -1,7 +1,7 @@
 module sync (
     input clk,
     input ext,
-    output int,
+    output int
 );
 
 reg [1:0] buffer;

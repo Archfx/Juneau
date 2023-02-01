@@ -24,3 +24,12 @@ fpga.json: $(FPGA_V) fw/otp.mem
 .PHONY: prog
 prog: fpga.bin
 	iceprog $<
+	
+	
+json:
+	yosys \
+	-p "read_verilog -defer  -formal  $(FPGA_V)" \
+	-p "hierarchy -check -top soc" \
+	-p "proc" \
+	-p "json -o soc.json"
+
