@@ -1,0 +1,15 @@
+soc/bootloader.v
+soc/fram.v
+soc/ram.v
+soc/simpleuart.v
+soc/spi.v
+soc/picorv32.v
+soc/rom.v
+soc/soc.v
+soc/uart.v
+soc/pwr.v
+soc/sha1.v
+soc/SPI_Master.v
+soc/wrapper.v
+tb.v
+

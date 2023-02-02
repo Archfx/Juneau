@@ -1,7 +1,7 @@
 /* verilator lint_off PINMISSING */
 
 module otp #(
-    parameter FIRMWARE_FILE = "fw/otp.mem",
+    parameter FIRMWARE_FILE = "../fw/signed.mem",
     parameter ROM_ADDR_BITS = 12, // 4K ROM
     parameter RAM_ADDR_BITS = 12, // 4K RAM
     parameter FRAM_ADDR_BITS = 12 // 4k FRAM

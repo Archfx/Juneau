@@ -2,7 +2,7 @@
 
 module rom #(
     parameter ADDR_BITS = 10,
-    parameter FILENAME = "fw/otp.mem"
+    parameter FILENAME = "../fw/otp.mem"
 ) (
     input clk,
     input valid,

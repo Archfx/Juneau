@@ -1,7 +1,7 @@
 /* verilator lint_off PINMISSING */
 
 module wrapper #(
-    parameter FIRMWARE_FILE = "firmware.mem",
+    parameter FIRMWARE_FILE = "../fw/otp.mem",
     parameter ROM_ADDR_BITS = 12,
     parameter RAM_ADDR_BITS = 17,
     parameter FRAM_ADDR_BITS = 20
@@ -10,6 +10,7 @@ module wrapper #(
     input resetn,
     input uart_rx,
     input uart_cts,
+    input dfu,
     output uart_tx,
     output uart_rts
 );
@@ -23,9 +24,11 @@ wire soc_resetn;
 assign soc_resetn = resetn && !(pwrmgr_state == pwrmgr_state_embryo) && !(pwrmgr_state == pwrmgr_state_running && poweroff_rq);
 wire poweroff_rq;
 
+
 always @(posedge clk) begin
     if (!resetn) begin
         pwrmgr_state <= pwrmgr_state_embryo;
+        $display("Reset captured");
     end else begin
         if (pwrmgr_state == pwrmgr_state_embryo) begin
             if (!uart_cts) begin
@@ -37,6 +40,7 @@ always @(posedge clk) begin
             end
         end
     end
+
 end
 
 wire soc_tx;
@@ -57,7 +61,8 @@ soc #(
     .uart_cts (uart_cts),
     .uart_rts (soc_rts),
     .spi_miso (1'b0),
-    .poweroff_rq (poweroff_rq)
+    .poweroff_rq (poweroff_rq),
+    .dfu (dfu)
 );
 
 endmodule

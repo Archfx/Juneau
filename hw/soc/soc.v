@@ -3,7 +3,7 @@
 `timescale 1 ns / 1 ps
 
 module soc #(
-    parameter FIRMWARE_FILE = "fw/otp.mem",
+    parameter FIRMWARE_FILE = "../fw/otp.mem",
     parameter ROM_ADDR_BITS = 12,
     parameter RAM_ADDR_BITS = 17,
     parameter FRAM_ADDR_BITS = 20
@@ -17,6 +17,7 @@ module soc #(
     input spi_miso,
     output spi_mosi,
     input uart_cts,
+    input dfu,
     output uart_rts
 );
 
@@ -40,6 +41,25 @@ picorv32 cpu(
     .mem_wstrb (mem_wstrb),
     .mem_rdata (mem_rdata)
 );
+
+// Bootloader
+
+wire verified;
+bootloader #(
+    .ADDR_BITS (ROM_ADDR_BITS),
+    .FILENAME ("../fw/signed.mem")
+) bootloader (
+    .clk (clk),
+    .valid (rom_valid),
+    .reset_n (resetn),
+    .addr (mem_addr),
+    .dout (rom_rdata),
+    .ready (rom_ready),
+    .dfu_enable (dfu_enable),
+    .verified(verified)
+);
+
+
 
 // ROM
 wire rom_valid = mem_valid && mem_addr[31:24] == 8'h00;
