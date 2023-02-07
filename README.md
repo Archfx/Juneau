@@ -6,8 +6,7 @@
 Objective
 ------
 
-Implementing a mini Security Engine (SE) in verilog for experimentational purposed on Trusted Execution Environements. Firmware implementation is in c.
-
+Implementing a mini Security Engine (SE) in Verilog for experimentation purposed on Trusted Execution Environments. Firmware implementation is in c.
 Specs
 ------
 - [PicoRV32](https://github.com/YosysHQ/picorv32) - Size optimized 32bit RISC-V processor as the processing element
