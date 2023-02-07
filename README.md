@@ -1,6 +1,8 @@
 # Hardware-Root-of-Trust
-==This is a work in progress project==
-
+```diff
+- This is a work in progress project
+@@ Progress will be updated in readme @@
+```
 Objective
 ------
 
