@@ -1,5 +1,5 @@
 # Hardware-Root-of-Trust
-<span style="color:red"> This is a work in progress project</span>.
+==This is a work in progress project==
 
 Objective
 ------
@@ -8,12 +8,19 @@ Implementing a mini Security Engine (SE) in verilog for experimentational purpos
 
 Specs
 ------
-[PicoRV32](https://github.com/YosysHQ/picorv32) - Size optimized 32bit RISC-V processor as the processing element
-Secure Hash Algorithm 1 (SHA1)
-ECDSA with curve p-192 for Authentication
-AES128 for Flash Encryption
+- [PicoRV32](https://github.com/YosysHQ/picorv32) - Size optimized 32bit RISC-V processor as the processing element
+- Secure Hash Algorithm 1 (SHA1)
+- ECDSA with curve p-192 for Authentication
+- AES128 for Flash Encryption
 
 
+Progress 
+
+- [x] basic soc
+- [x] initial firmware
+- [x] SHA intergration
+- [x] SHA1 driver
+- [x] Sign firmware externally
 
 
 TODO :
