@@ -1,6 +1,20 @@
 # Hardware-Root-of-Trust
+<span style="color:red"> This is a work in progress project</span>.
 
-Verilog implementation of Hardware-Root-of-Trust with firmware
+Objective
+------
+
+Implementing a mini Security Engine (SE) in verilog for experimentational purposed on Trusted Execution Environements. Firmware implementation is done in c.
+
+Specs
+------
+[PicoRV32](https://github.com/YosysHQ/picorv32) - Size optimized 32bit RISC-V processor as the processing element
+Secure Hash Algorithm 1 (SHA1)
+ECDSA with curve p-192 for Authentication
+AES128 for Flash Encryption
+
+
+
 
 TODO :
 
