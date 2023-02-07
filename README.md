@@ -6,7 +6,7 @@
 Objective
 ------
 
-Implementing a mini Security Engine (SE) in verilog for experimentational purposed on Trusted Execution Environements. Firmware implementation is done in c.
+Implementing a mini Security Engine (SE) in verilog for experimentational purposed on Trusted Execution Environements. Firmware implementation is in c.
 
 Specs
 ------
